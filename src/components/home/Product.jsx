@@ -1,7 +1,7 @@
 
 const Product = ({ product }) => {
     return (
-        <div className='w-[400px] p-5 m-2 rounded-m relative border shadow-2xl hover:font-bold cursor-pointer'>
+        <div className='w-[460px] p-5 mb-2 mx-2 rounded-m relative border shadow-2xl hover:font-bold cursor-pointer'>
             <div className="text-xl font-bold absolute rounded-md top-2 right-2 bg-lime-500 text-white">{product?.price}<span className="pl-3">
                 $
             </span></div>

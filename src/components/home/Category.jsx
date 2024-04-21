@@ -11,7 +11,7 @@ const Category = () => {
         dispatch(getCategories())
     }, [dispatch])
     return (
-        <div className='w-1/6 bg-lime-50 p-4'>
+        <div className='w-1/6 bg-lime-50 p-4 max-h-screen'>
 
             <div className='border-b pb-1 text-xl font-bold p-2'>Category</div>
             {
