@@ -14,8 +14,8 @@ const Home = () => {
       <SliderComponent />
       <Sorting />
       <div className="flex">
-        <Category />
-        <Product />
+        <Category setCategory={setCategory} />
+        <Product category={category} />
 
       </div>
     </div>

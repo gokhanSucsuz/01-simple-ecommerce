@@ -1,20 +1,27 @@
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { getProducts } from '../../redux/productSlice'
+import { getCategoryProducts, getProducts } from '../../redux/productSlice'
 import Loading from "../Loading"
 import Product from './Product'
 import ReactPaginate from 'react-paginate'
 
 
-const Products = () => {
+const Products = ({ category }) => {
 
   const dispatch = useDispatch()
   const { products, productStatus } = useSelector(store => store.products)
 
   console.log(products)
   useEffect(() => {
-    dispatch(getProducts())
-  }, [dispatch])
+    if (category) {
+      dispatch(getCategoryProducts(category))
+    } else {
+      dispatch(getProducts())
+    }
+
+  }, [dispatch, category])
+
+
   const [itemOffset, setItemOffset] = useState(0);
 
   const itemsPerPage = 6
