@@ -1,11 +1,9 @@
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
 import { getCartTotal } from '../redux/cartSlice'
 import { CartComponent } from '../components/cart/CartComponent'
 
 const Cart = () => {
-    const navigate = useNavigate()
     const dispatch = useDispatch()
     const { carts, totalAmount, itemCount } = useSelector(store => store.carts)
 
@@ -14,7 +12,7 @@ const Cart = () => {
         dispatch(getCartTotal())
     })
     return (
-        <div className='py-10'>
+        <div className='py-10 '>
 
             {
                 carts?.length > 0 ? <div>
@@ -23,8 +21,10 @@ const Cart = () => {
                             <CartComponent key={index} cart={cart} />
                         )
                     }
-                </div> : <div>Error</div>
+                </div> : <div>There is not any product in your cart!</div>
             }
+
+            <div className='float-end font-bold text-red-500 text-3xl'>Total Amount: {totalAmount} $</div>
         </div>
     )
 }

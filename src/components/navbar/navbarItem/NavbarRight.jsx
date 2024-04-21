@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom"
 const NavbarRight = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
-  const { itemCount } = useSelector(store => store.carts)
+  const { carts, itemCount } = useSelector(store => store.carts)
 
   useEffect(() => {
     dispatch(getCartTotal())
@@ -21,8 +21,8 @@ const NavbarRight = () => {
         <BiSearch size={20} />
       </div>
       <AiOutlineHeart size={20} />
-      <div className="relative" onClick={() => navigate("cart")}>
-        <div className="absolute -top-3 -right-3 bg-red-500 text-white rounded-full w-5 h-5 flex items-center justify-center">{itemCount}</div>
+      <div className="relative cursor-pointer" onClick={() => navigate("cart")}>
+        <div className="absolute -top-3 -right-3 bg-red-500 text-white rounded-full w-5 h-5 flex items-center justify-center">{carts?.length}</div>
         <SlBasket size={20} />
       </div>
     </div>

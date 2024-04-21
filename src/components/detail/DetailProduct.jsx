@@ -24,6 +24,8 @@ const DetailProduct = ({ productDetail }) => {
             quantity: quantity
 
         }))
+
+
     }
 
     return (
