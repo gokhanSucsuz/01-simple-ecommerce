@@ -1,9 +1,13 @@
+import { useState } from "react"
 import Category from "../components/home/Category"
-import Product from "../components/home/Product"
+import Product from "../components/home/Products"
 import SliderComponent from "../components/home/SliderComponent"
 import Sorting from "../components/home/Sorting"
 
 const Home = () => {
+  const [sort, setSort] = useState("")
+  const [category, setCategory] = useState("")
+
 
   return (
     <div>
