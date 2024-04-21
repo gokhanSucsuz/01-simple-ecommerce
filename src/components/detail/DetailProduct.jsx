@@ -1,9 +1,9 @@
 import { useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { addToCart } from '../../redux/cartSlice'
 
 const DetailProduct = ({ productDetail }) => {
-    const [quantity, setQuantity] = useState(1)
+    const [quantity, setQuantity] = useState(0)
     const dispatch = useDispatch()
 
     const handleClick = (e) => {
@@ -17,10 +17,11 @@ const DetailProduct = ({ productDetail }) => {
 
     const addBasket = () => {
         dispatch(addToCart({
-            id: productDetail?.id, title: productDetail?.title,
+            id: productDetail?.id,
+            title: productDetail?.title,
             image: productDetail?.image,
-            quantity: productDetail?.quantity,
-            price: productDetail?.price
+            price: productDetail?.price,
+            quantity: quantity
 
         }))
     }

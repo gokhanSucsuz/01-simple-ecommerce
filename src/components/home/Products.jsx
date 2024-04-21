@@ -10,8 +10,6 @@ const Products = ({ category, sort }) => {
 
   const dispatch = useDispatch()
   const { products, productStatus } = useSelector(store => store.products)
-
-  console.log(sort)
   useEffect(() => {
     if (category) {
       dispatch(getCategoryProducts(category))
