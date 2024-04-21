@@ -10,7 +10,7 @@ const Cart = () => {
     console.log(carts, totalAmount, itemCount)
     useEffect(() => {
         dispatch(getCartTotal())
-    })
+    }, [dispatch, totalAmount, itemCount, carts])
     return (
         <div className='py-10 '>
 
