@@ -1,19 +1,30 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getCartTotal } from '../redux/cartSlice'
 import { CartComponent } from '../components/cart/CartComponent'
+import toast, { Toaster } from 'react-hot-toast'
 
 const Cart = () => {
     const dispatch = useDispatch()
     const { carts, totalAmount, itemCount } = useSelector(store => store.carts)
+    const [buttonState, setButtonState] = useState(0)
 
-    console.log(carts, totalAmount, itemCount)
     useEffect(() => {
         dispatch(getCartTotal())
+        setButtonState(buttonState + 1)
     }, [dispatch, totalAmount, itemCount, carts])
+
+
+    useEffect(() => {
+        buttonState > 0 && toast.error("Product removed from your cart!")
+    }, [totalAmount])
+
+
+
     return (
         <div className='py-10 '>
-
+            <Toaster position="top-right"
+                reverseOrder={true} />
             {
                 carts?.length > 0 ? <div>
                     {
