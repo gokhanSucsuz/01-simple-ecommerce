@@ -1,6 +1,10 @@
+import { useSelector } from "react-redux";
 import Slider from "react-slick";
+import { useNavigate } from "react-router-dom";
 
 const SliderComponent = () => {
+    const navigate = useNavigate()
+    const { products } = useSelector(store => store.products)
     var settings = {
         dots: true,
         infinite: true,
@@ -11,30 +15,18 @@ const SliderComponent = () => {
     return (
         <div>
             <Slider {...settings}>
-                <div className="!flex items-center bg-gray-100 p-6">
-                    <div className="mx-4">
-                        <div className="text-3xl font-bold">Lorem ipsum dolor sit amet.</div>
-                        <div className="text-lg my-4">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laudantium exercitationem quia nesciunt doloribus labore provident fuga dignissimos aperiam numquam error nobis quidem, alias nam hic placeat tenetur et voluptates dolorum. Nemo corporis odio est minima id quaerat nisi doloremque minus.</div>
-                        <div className="border rounded-full cursor-pointer text-xl w-[200px] h-8 flex items-center justify-center bg-lime-200">Review</div>
-                    </div>
-                    <img src="https://img1-newbalance.mncdn.com/mnpadding/960/960/FFFFFF/newbalance/products/NBMR530OW_1.jpg" width={400} alt="" />
-                </div>
-                <div className="!flex items-center bg-gray-100 p-6">
-                    <div className="mx-4">
-                        <div className="text-3xl font-bold">Lorem ipsum dolor sit amet.</div>
-                        <div className="text-lg my-4">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laudantium exercitationem quia nesciunt doloribus labore provident fuga dignissimos aperiam numquam error nobis quidem, alias nam hic placeat tenetur et voluptates dolorum. Nemo corporis odio est minima id quaerat nisi doloremque minus.</div>
-                        <div className="border rounded-full cursor-pointer text-xl w-[200px] h-8 flex items-center justify-center bg-lime-200">Review</div>
-                    </div>
-                    <img src="https://img1-newbalance.mncdn.com/mnpadding/960/960/FFFFFF/newbalance/products/NBWS327NA_1.jpg" width={400} alt="" />
-                </div>
-                <div className="!flex items-center bg-gray-100 p-6">
-                    <div className="mx-4">
-                        <div className="text-3xl font-bold">Lorem ipsum dolor sit amet.</div>
-                        <div className="text-lg my-4">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laudantium exercitationem quia nesciunt doloribus labore provident fuga dignissimos aperiam numquam error nobis quidem, alias nam hic placeat tenetur et voluptates dolorum. Nemo corporis odio est minima id quaerat nisi doloremque minus.</div>
-                        <div className="border rounded-full cursor-pointer text-xl w-[200px] h-8 flex items-center justify-center bg-lime-200">Review</div>
-                    </div>
-                    <img src="https://img1-newbalance.mncdn.com/mnpadding/960/960/FFFFFF/newbalance/products/NBBB550VGA_1.jpg" width={400} alt="" />
-                </div>
+                {
+                    products?.map((product, index) =>
+                        <div key={index} className="!flex items-center bg-gray-100 p-6">
+                            <div className="mx-4">
+                                <div className="text-3xl font-bold">{product?.title}</div>
+                                <div className="text-lg my-4 font-bold text-red-700">${product?.price}</div>
+                                <div onClick={() => navigate(`products/${product?.id}`)} className="border rounded-full cursor-pointer text-xl w-[200px] h-8 flex items-center justify-center bg-lime-200">Review</div>
+                            </div>
+                            <img className="w-[200px] h-[200px] object-cover m-auto" src={product?.image} width={400} alt="" />
+                        </div>
+                    )
+                }
             </Slider>
         </div>
     )
