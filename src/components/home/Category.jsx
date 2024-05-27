@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux'
-
+import PropTypes from "prop-types"
 import { useEffect } from 'react'
 import { getCategories } from '../../redux/categorySlice'
 
@@ -22,5 +22,9 @@ const Category = ({ setCategory }) => {
         </div>
     )
 }
+
+Category.propTypes = {
+    setCategory: PropTypes.func.isRequired,
+};
 
 export default Category

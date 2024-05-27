@@ -1,13 +1,15 @@
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { addToCart } from '../../redux/cartSlice'
+import PropTypes from 'prop-types';
+
 
 const DetailProduct = ({ productDetail }) => {
-    const [quantity, setQuantity] = useState(0)
+    const [quantity, setQuantity] = useState(1)
     const dispatch = useDispatch()
 
     const handleClick = (e) => {
-        if (e.target.textContent === "-" && quantity > 0) {
+        if (e.target.textContent === "-" && quantity > 1) {
             setQuantity(quantity - 1)
         } else if (e.target.textContent === "+") {
             productDetail?.rating.count > quantity &&
@@ -42,10 +44,26 @@ const DetailProduct = ({ productDetail }) => {
                     <div>{quantity}</div>
                     <div className='cursor-pointer' onClick={handleClick}>+</div>
                 </div>
-                <div className='bg-lime-300 w-[200px] border rounded-md cursor-pointer h-12 flex items-center justify-center my-3' onClick={addBasket}>Add to Cart</div>
+                <div className={`bg-lime-300 w-[200px] border rounded-md cursor-pointer h-12 flex items-center justify-center my-3 readonly`} onClick={addBasket}>Add to Cart</div>
             </div>
         </div>
     )
 }
+
+
+
+DetailProduct.propTypes = {
+    productDetail: PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        title: PropTypes.string.isRequired,
+        image: PropTypes.string.isRequired,
+        price: PropTypes.number.isRequired,
+        description: PropTypes.string,
+        rating: PropTypes.shape({
+            rate: PropTypes.number,
+            count: PropTypes.number,
+        }),
+    }).isRequired,
+};
 
 export default DetailProduct
