@@ -26,8 +26,6 @@ const DetailProduct = ({ productDetail }) => {
             quantity: quantity
 
         }))
-
-
     }
 
     return (
@@ -50,20 +48,18 @@ const DetailProduct = ({ productDetail }) => {
     )
 }
 
-
-
 DetailProduct.propTypes = {
     productDetail: PropTypes.shape({
-        id: PropTypes.number.isRequired,
-        title: PropTypes.string.isRequired,
-        image: PropTypes.string.isRequired,
-        price: PropTypes.number.isRequired,
+        id: PropTypes.number,
+        title: PropTypes.string,
+        image: PropTypes.string,
+        price: PropTypes.number,
         description: PropTypes.string,
         rating: PropTypes.shape({
             rate: PropTypes.number,
             count: PropTypes.number,
         }),
-    }).isRequired,
+    }),
 };
 
 export default DetailProduct

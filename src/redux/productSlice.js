@@ -37,34 +37,34 @@ const productSlice = createSlice({
 	reducers: {},
 	extraReducers: (builder) => {
 		builder
-			.addCase(getProducts.pending, (state, action) => {
+			.addCase(getProducts.pending, (state) => {
 				state.productsStatus = STATUS.LOADING;
 			})
 			.addCase(getProducts.fulfilled, (state, action) => {
 				state.productsStatus = STATUS.SUCCESS;
 				state.products = action.payload;
 			})
-			.addCase(getProducts.rejected, (state, action) => {
+			.addCase(getProducts.rejected, (state) => {
 				state.productsStatus = STATUS.FAIL;
 			})
-			.addCase(getDetailProduct.pending, (state, action) => {
+			.addCase(getDetailProduct.pending, (state) => {
 				state.productDetailStatus = STATUS.LOADING;
 			})
 			.addCase(getDetailProduct.fulfilled, (state, action) => {
 				state.productDetailStatus = STATUS.SUCCESS;
 				state.productDetail = action.payload;
 			})
-			.addCase(getDetailProduct.rejected, (state, action) => {
+			.addCase(getDetailProduct.rejected, (state) => {
 				state.productDetailStatus = STATUS.FAIL;
 			})
-			.addCase(getCategoryProducts.pending, (state, action) => {
+			.addCase(getCategoryProducts.pending, (state) => {
 				state.productsStatus = STATUS.LOADING;
 			})
 			.addCase(getCategoryProducts.fulfilled, (state, action) => {
 				state.productsStatus = STATUS.SUCCESS;
 				state.products = action.payload;
 			})
-			.addCase(getCategoryProducts.rejected, (state, action) => {
+			.addCase(getCategoryProducts.rejected, (state) => {
 				state.productsStatus = STATUS.FAIL;
 			});
 	},
