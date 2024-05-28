@@ -17,7 +17,7 @@ const SliderComponent = () => {
             <Slider {...settings}>
                 {
                     products?.map((product, index) =>
-                        <div key={index} className="!flex items-center bg-gray-100 p-6">
+                        <div key={index} className="!flex items-center bg-lime-100 p-6">
                             <div className="mx-4">
                                 <div className="text-3xl font-bold">{product?.title}</div>
                                 <div className="text-lg my-4 font-bold text-red-700">${product?.price}</div>
