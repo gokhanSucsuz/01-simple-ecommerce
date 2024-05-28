@@ -17,7 +17,7 @@ const NavbarRight = () => {
   return (
     <div className="flex items-center gap-8">
       <div className="flex items-center border p-3 rounded-full bg-lime-200">
-        <input className="bg-lime-200 outline-none" type="text" placeholder="Search Area..." />
+        <input className="bg-lime-200 outline-none placeholder-indigo-500" type="text" placeholder="Search Area..." />
         <BiSearch size={20} />
       </div>
       <AiOutlineHeart size={20} />
