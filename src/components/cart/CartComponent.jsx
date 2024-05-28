@@ -10,16 +10,18 @@ export const CartComponent = ({ cart }) => {
     }
 
     return (
-        <div className='my-4 border-separate shadow-sm flex justify-between'>
+        <div className='p-4 border-separate shadow-sm flex justify-between bg-slate-200 gap-4 flex-wrap '>
 
-            <img className='w-[150px] h-[150px] object-cover' src={cart?.image} alt="" />
-            <div className='w-[476px]'>
+            <div>
+                <img className='w-[120px] h-[120px] object-cover rounded-xl p-3' src={cart?.image} alt="" />
+            </div>
+            <div className='flex flex-wrap font-bold text-orange-600'>
                 <div>{cart?.title}</div>
                 <div>{cart?.description}</div>
             </div>
-            <div>{cart?.price} $ ({cart?.quantity})</div>
+            <div className="px-3 text-red-600 font-bold text-xl">{cart?.price} $ ({cart?.quantity})</div>
             <div
-                className='m-2 p-2 bg-red-500 w-[100px] h-[40px] text-center text-white rounded-sm cursor-pointer'
+                className='m-2 p-2 bg-red-500 w-[100px] h-[40px] text-center text-white rounded-lg cursor-pointer'
                 onClick={handleClick}>
                 Delete
             </div>

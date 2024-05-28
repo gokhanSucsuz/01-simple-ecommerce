@@ -11,12 +11,12 @@ const Category = ({ setCategory }) => {
         dispatch(getCategories())
     }, [dispatch])
     return (
-        <div className='w-1/6 bg-lime-50 p-4 max-h-screen'>
+        <div className='w-fit bg-slate-300 rounded-xl p-4 max-h-screen'>
 
-            <div className='border-b pb-1 text-xl font-bold p-2'>Category</div>
+            <div className='border-b pb-4 text-xl font-bold p-2'>Categories</div>
             {
                 categories?.map((category, index) =>
-                    <div className='text-lg mt-2 cursor-pointer hover:bg-lime-200 p-2' key={index} onClick={() => setCategory(category)}>{category}</div>
+                    <div className='text-lg mt-2 cursor-pointer rounded-lg hover:bg-orange-200 hover:text-slate-700 hover:font-bold p-2 ' key={index} onClick={() => setCategory(category)}>{category?.toUpperCase()}</div>
                 )
             }
         </div>

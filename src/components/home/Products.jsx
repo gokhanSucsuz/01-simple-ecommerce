@@ -38,11 +38,11 @@ const Products = ({ category, sort }) => {
   };
 
   return (
-    <div>
+    <div className='flex-col'>
       {
         productStatus == "LOADING" ? <Loading /> :
           <>
-            <div className='flex flex-wrap'>
+            <div className='flex flex-wrap '>
               {
                 currentItems?.sort((a, b) => sort === "inc" ? a.price - b.price : sort === "dec" ? b.price - a.price : "").map((product, index) =>
                   <Product key={index} product={product} />

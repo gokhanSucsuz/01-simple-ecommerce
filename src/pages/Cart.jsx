@@ -22,7 +22,7 @@ const Cart = () => {
 
 
     return (
-        <div className='py-10 '>
+        <div className='py-10 h-[calc(100dvh-220px)]'>
             <Toaster position="top-right"
                 reverseOrder={true} />
             {
@@ -35,7 +35,7 @@ const Cart = () => {
                 </div> : <div>There is not any product in your cart!</div>
             }
 
-            <div className='float-end font-bold text-red-500 text-3xl'>Total Amount: {totalAmount} $</div>
+            <div className='float-end font-bold text-red-500 text-3xl py-5'>Total Amount: {totalAmount} $</div>
         </div>
     )
 }

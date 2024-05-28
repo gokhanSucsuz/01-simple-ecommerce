@@ -32,24 +32,24 @@ const DetailProduct = ({ productDetail }) => {
     }
 
     return (
-        <div >
+        <div className='h-[calc(100dvh-232px)]'>
             <Toaster position="top-right"
                 reverseOrder={true} />
 
-            <div className=' flex gap-4'>
-                <img className='w-[400px] object-cover' src={productDetail?.image} alt="" />
-                <div className=''>
-                    <div className='text-lg font-bold py-5'>{productDetail?.title}</div>
-                    <div className='pb-5'>{productDetail?.description}</div>
-                    {/* <div className='text-lime-700'>Rating: {productDetail?.rating.rate}</div>
-                <div className='text-lime-700'>Count: {productDetail?.rating.count}</div> */}
-                    <div className='text-5xl py-3 text-lime-400 font-bold'>{productDetail?.price} <span className='text-xl'>$</span></div>
-                    <div className='flex gap-3 text-2xl font-bold'>
+            <div className='flex flex-wrap gap-5 py-5'>
+                <div className='h-40 md:h-52 lg:h-60  w-96 flex justify-center'>
+                    <img className='h-40 md:h-52 lg:h-60 object-cover rounded-xl ' src={productDetail?.image} alt={productDetail?.title} />
+                </div>
+                <div className='text-sm md:text-lg lg:text-xl max-w-4xl'>
+                    <div className='text-sm md:text-lg lg:text-xl font-bold py-5'>{productDetail?.title}</div>
+                    <div className='text-sm md:text-lg lg:text-xl pb-5'>{productDetail?.description}</div>
+                    <div className=' py-3 text-orange-400 font-bold'>{productDetail?.price} <span className='text-xl'>$</span></div>
+                    <div className='flex gap-3 font-bold'>
                         <div className='cursor-pointer' onClick={handleClick}>-</div>
                         <div>{quantity}</div>
                         <div className='cursor-pointer' onClick={handleClick}>+</div>
                     </div>
-                    <div id="liveToastBtn" className={`bg-lime-300 w-[200px] border rounded-md cursor-pointer h-12 flex items-center justify-center my-3 readonly`} onClick={addBasket}>
+                    <div id="liveToastBtn" className={`bg-orange-300 w-fit p-2 border rounded-md cursor-pointer h-12 flex items-center justify-center my-3 readonly text-sm md:text-lg lg:text-xl`} onClick={addBasket}>
                         Add to Cart
                     </div>
                 </div>
