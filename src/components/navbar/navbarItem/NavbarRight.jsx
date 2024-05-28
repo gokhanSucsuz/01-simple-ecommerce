@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom"
 const NavbarRight = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
-  const { carts, itemCount } = useSelector(store => store.carts)
+  const { carts } = useSelector(store => store.carts)
 
   useEffect(() => {
     dispatch(getCartTotal())
