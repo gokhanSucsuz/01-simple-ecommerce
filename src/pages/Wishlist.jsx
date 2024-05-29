@@ -6,16 +6,16 @@ import { removeFromWishlist } from '../redux/wishlistSlice'
 
 const Wishlist = () => {
     const dispatch = useDispatch()
-    const { wishlist } = useSelector(store => store.wishlist)  // whishlist değil, wishlist olmalı
+    const { wishlist } = useSelector(store => store.wishlist)
     const [buttonState, setButtonState] = useState(0)
 
     useEffect(() => {
         setButtonState(buttonState + 1)
-    }, [dispatch, wishlist])  // whishlist değil, wishlist olmalı
+    }, [dispatch, wishlist])
 
     useEffect(() => {
         if (buttonState > 0) {
-            toast.error("Product removed from your cart!")
+            toast.error("Product removed wishlist!")
         }
     }, [wishlist])
 
