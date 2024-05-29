@@ -9,6 +9,8 @@ const Cart = () => {
     const { carts, totalAmount, itemCount } = useSelector(store => store.carts)
     const [buttonState, setButtonState] = useState(0)
 
+    console.log(carts)
+
     useEffect(() => {
         dispatch(getCartTotal())
         setButtonState(buttonState + 1)

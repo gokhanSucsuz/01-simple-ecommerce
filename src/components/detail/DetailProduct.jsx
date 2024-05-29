@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux'
 import { addToCart } from '../../redux/cartSlice'
 import PropTypes from 'prop-types';
 import toast, { Toaster } from 'react-hot-toast';
+import { addToWishlist } from '../../redux/wishlistSlice';
 
 
 
@@ -31,6 +32,17 @@ const DetailProduct = ({ productDetail }) => {
         toast.success(`${quantity} products added to your cart successfully!`)
     }
 
+    const addWishlist = () => {
+        dispatch(addToWishlist({
+            id: productDetail?.id,
+            title: productDetail?.title,
+            image: productDetail?.image,
+            price: productDetail?.price,
+
+        }))
+        toast.success(`${quantity} products added to whishlist successfully!`)
+    }
+
     return (
         <div className='h-[calc(100dvh-232px)]'>
             <Toaster position="top-right"
@@ -51,6 +63,9 @@ const DetailProduct = ({ productDetail }) => {
                     </div>
                     <div id="liveToastBtn" className={`bg-orange-300 w-fit p-2 border rounded-md cursor-pointer h-12 flex items-center justify-center my-3 readonly text-sm md:text-lg lg:text-xl`} onClick={addBasket}>
                         Add to Cart
+                    </div>
+                    <div id="liveToastBtn" className={`bg-orange-300 w-fit p-2 border rounded-md cursor-pointer h-12 flex items-center justify-center my-3 readonly text-sm md:text-lg lg:text-xl`} onClick={addWishlist}>
+                        Add to Whishlist
                     </div>
                 </div>
             </div>
