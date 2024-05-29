@@ -20,7 +20,7 @@ const NavbarRight = () => {
   return (
     <div className="flex items-center gap-8">
       <div className="hidden lg:flex items-center border p-3 rounded-full bg-orange-300">
-        <input className="bg-orange-300 border-none out font-bold placeholder-slate-500" type="text" placeholder="Search Area..." />
+        <input className="bg-orange-300 border-none border-transparent focus:border-transparent focus:ring-0 font-bold placeholder-slate-500 " type="text" placeholder="Search Area..." />
         <BiSearch className="text-slate-500" size={20} />
       </div>
       <div className="flex gap-4 md:gap-8 pe-5">
