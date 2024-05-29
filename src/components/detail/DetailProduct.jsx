@@ -12,10 +12,10 @@ const DetailProduct = ({ productDetail }) => {
     const [quantity, setQuantity] = useState(1)
     const dispatch = useDispatch()
 
-    const handleClick = (e) => {
-        if (e.target.textContent === "-" && quantity > 1) {
+    const handleClick = (process) => {
+        if (process === "minus" && quantity > 1) {
             setQuantity(quantity - 1)
-        } else if (e.target.textContent === "+") {
+        } else if (process === "plus") {
             productDetail?.rating.count > quantity &&
                 setQuantity(quantity + 1)
         }
@@ -59,17 +59,17 @@ const DetailProduct = ({ productDetail }) => {
                     <div className=' py-3 text-orange-400 font-bold'>{productDetail?.price} <span className='text-xl'>$</span></div>
                     <div className='flex flex-wrap justify-between gap-1'>
                         <div className='flex gap-3 font-bold items-center'>
-                            <div className='cursor-pointer' onClick={handleClick}><FaMinusCircle className='hover:scale-105 text-2xl' />
+                            <div className='cursor-pointer' onClick={() => handleClick("minus")}><FaMinusCircle className='hover:scale-105 text-2xl' values='minus' />
                             </div>
                             <div className='text-2xl'>{quantity}</div>
-                            <div className='cursor-pointer' onClick={handleClick}><FaPlusCircle className='hover:scale-105 text-2xl' />
+                            <div className='cursor-pointer' onClick={() => handleClick("plus")}><FaPlusCircle className='hover:scale-105 text-2xl' />
                             </div>
                         </div>
                         <div className='flex flex-wrap gap-2'>
-                            <div id="liveToastBtn" className={`bg-orange-300 w-fit p-2 border rounded-md cursor-pointer max-h-12 flex items-center justify-center readonly text-sm md:text-lg lg:text-xl`} onClick={addBasket}>
+                            <div id="liveToastBtn" className={`bg-orange-300 w-fit p-2 border rounded-md cursor-pointer max-h-12 flex items-center justify-center readonly text-sm md:text-lg lg:text-xl hover:scale-95`} onClick={addBasket}>
                                 Add to Cart
                             </div>
-                            <div id="liveToastBtn" className={`bg-orange-300 w-fit p-2 border rounded-md cursor-pointer max-h-12 flex items-center justify-center readonly text-sm md:text-lg lg:text-xl`} onClick={addWishlist}>
+                            <div id="liveToastBtn" className={`bg-orange-300 w-fit p-2 border rounded-md cursor-pointer max-h-12 flex items-center justify-center readonly text-sm md:text-lg lg:text-xl hover:scale-95`} onClick={addWishlist}>
                                 Add to Whishlist
                             </div>
                         </div>
