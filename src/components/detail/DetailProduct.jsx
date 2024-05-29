@@ -4,6 +4,7 @@ import { addToCart } from '../../redux/cartSlice'
 import PropTypes from 'prop-types';
 import toast, { Toaster } from 'react-hot-toast';
 import { addToWishlist } from '../../redux/wishlistSlice';
+import { FaMinusCircle, FaPlusCircle } from 'react-icons/fa';
 
 
 
@@ -56,16 +57,22 @@ const DetailProduct = ({ productDetail }) => {
                     <div className='text-sm md:text-lg lg:text-xl font-bold py-5'>{productDetail?.title}</div>
                     <div className='text-sm md:text-lg lg:text-xl pb-5'>{productDetail?.description}</div>
                     <div className=' py-3 text-orange-400 font-bold'>{productDetail?.price} <span className='text-xl'>$</span></div>
-                    <div className='flex gap-3 font-bold'>
-                        <div className='cursor-pointer' onClick={handleClick}>-</div>
-                        <div>{quantity}</div>
-                        <div className='cursor-pointer' onClick={handleClick}>+</div>
-                    </div>
-                    <div id="liveToastBtn" className={`bg-orange-300 w-fit p-2 border rounded-md cursor-pointer h-12 flex items-center justify-center my-3 readonly text-sm md:text-lg lg:text-xl`} onClick={addBasket}>
-                        Add to Cart
-                    </div>
-                    <div id="liveToastBtn" className={`bg-orange-300 w-fit p-2 border rounded-md cursor-pointer h-12 flex items-center justify-center my-3 readonly text-sm md:text-lg lg:text-xl`} onClick={addWishlist}>
-                        Add to Whishlist
+                    <div className='flex flex-wrap justify-between gap-1'>
+                        <div className='flex gap-3 font-bold items-center'>
+                            <div className='cursor-pointer' onClick={handleClick}><FaMinusCircle className='hover:scale-105' />
+                            </div>
+                            <div>{quantity}</div>
+                            <div className='cursor-pointer' onClick={handleClick}><FaPlusCircle className='hover:scale-105' />
+                            </div>
+                        </div>
+                        <div className='flex flex-wrap gap-2'>
+                            <div id="liveToastBtn" className={`bg-orange-300 w-fit p-2 border rounded-md cursor-pointer max-h-12 flex items-center justify-center readonly text-sm md:text-lg lg:text-xl`} onClick={addBasket}>
+                                Add to Cart
+                            </div>
+                            <div id="liveToastBtn" className={`bg-orange-300 w-fit p-2 border rounded-md cursor-pointer max-h-12 flex items-center justify-center readonly text-sm md:text-lg lg:text-xl`} onClick={addWishlist}>
+                                Add to Whishlist
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
