@@ -59,10 +59,10 @@ const DetailProduct = ({ productDetail }) => {
                     <div className=' py-3 text-orange-400 font-bold'>{productDetail?.price} <span className='text-xl'>$</span></div>
                     <div className='flex flex-wrap justify-between gap-1'>
                         <div className='flex gap-3 font-bold items-center'>
-                            <div className='cursor-pointer' onClick={handleClick}><FaMinusCircle className='hover:scale-105' />
+                            <div className='cursor-pointer' onClick={handleClick}><FaMinusCircle className='hover:scale-105 text-2xl' />
                             </div>
-                            <div>{quantity}</div>
-                            <div className='cursor-pointer' onClick={handleClick}><FaPlusCircle className='hover:scale-105' />
+                            <div className='text-2xl'>{quantity}</div>
+                            <div className='cursor-pointer' onClick={handleClick}><FaPlusCircle className='hover:scale-105 text-2xl' />
                             </div>
                         </div>
                         <div className='flex flex-wrap gap-2'>
