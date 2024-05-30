@@ -24,7 +24,7 @@ const Cart = () => {
 
 
     return (
-        <div className='py-10 h-[calc(100dvh-220px)]'>
+        <div className='py-10'>
             <Toaster position="top-right"
                 reverseOrder={true} />
             {

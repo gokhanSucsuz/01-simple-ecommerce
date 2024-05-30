@@ -45,7 +45,7 @@ const DetailProduct = ({ productDetail }) => {
     }
 
     return (
-        <div className='h-[calc(100dvh-232px)]'>
+        <div className=''>
             <Toaster position="top-right"
                 reverseOrder={true} />
 

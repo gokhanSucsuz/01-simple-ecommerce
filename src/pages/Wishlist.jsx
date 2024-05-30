@@ -20,7 +20,7 @@ const Wishlist = () => {
     }, [wishlist])
 
     return (
-        <div className='py-10 h-[calc(100dvh-220px)]'>
+        <div className='py-10 '>
             <Toaster position="top-right" reverseOrder={true} />
             <div className='float-left w-full font-bold text-red-500 text-3xl py-5'>
                 Wishlist</div>
